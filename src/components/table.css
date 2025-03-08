@@ -7,6 +7,7 @@ body {
     justify-content: center;
     align-items: flex-start;
     padding-top: 30px;
+    height: 100vh;
 }
 
 /* Table container */
@@ -14,6 +15,7 @@ body {
     width: 95%; /* Make table wider */
     max-width: 1400px; /* More space */
     margin: auto;
+    overflow-x: auto; /* Add horizontal scroll on small screens */
 }
 
 /* Table styling */
@@ -24,6 +26,7 @@ table {
     text-align: left;
     border: 2px solid #ddd; /* Outer border */
     table-layout: fixed; /* Ensure equal column width */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
 }
 
 /* Table headers */
@@ -35,6 +38,7 @@ th {
     text-transform: capitalize;
     border: 2px solid #ddd;
     white-space: nowrap; /* Prevent text wrapping */
+    text-align: center;
 }
 
 /* Table rows */
@@ -45,11 +49,12 @@ td {
     overflow: hidden;
     text-overflow: ellipsis; /* Trim overflow text */
     white-space: nowrap;
+    text-align: center;
 }
 
 /* Alternating row colors */
 tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: #f9f9f9;
 }
 
 /* Hover effect */
@@ -57,13 +62,41 @@ tr:hover {
     background-color: #e9ecef;
     transition: 0.2s;
 }
+
+/* Edit and Delete buttons styling */
+button {
+    background-color: #28a745; /* Green for Save/Cancel */
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+    margin: 4px; /* Margin between buttons */
+    transition: background-color 0.2s ease;
+}
+button.del {
+    background-color: #e61111;
+}
+
+
+
+/* Cancel Button */
+button.cancel {
+    background-color: #dc3545; /* Red for cancel */
+}
+
+button.cancel:hover {
+    background-color: #c82333; /* Darker red */
+}
+
 /* Pagination controls */
 .pagination {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 20px;
+    margin-bottom: 20px;
     display: flex;
     justify-content: center;  /* Center-align pagination buttons */
-    gap: 8px;
+    gap: 10px;
     align-items: center;
 }
 
