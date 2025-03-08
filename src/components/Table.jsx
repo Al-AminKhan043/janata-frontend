@@ -26,9 +26,13 @@ export default function Table() {
 
   // Function to handle the deletion of a row
   const handleDelete = async (id) => {
+    const isConfirmed=window.confirm('Are you sure you want to delete this row?')
+    if(!isConfirmed){
+      return;
+    }
     try {
       // Make the DELETE request to the backend
-      const response = await fetch(`http://localhost:5000/data/${id}`, {
+      const response = await fetch(`http://localhost:5000/delete/${id}`, {
         method: 'DELETE',
       });
 
@@ -39,7 +43,7 @@ export default function Table() {
       // Remove the deleted item from the state (optimistic update)
       setData((prevData) => prevData.filter((entry) => entry.id !== id));
 
-      console.log('Data deleted successfully');
+      alert("Row deleted successfully!");
     } catch (error) {
       console.error('Error deleting data', error);
     }
@@ -49,7 +53,7 @@ export default function Table() {
     <>
       <div className="table-container">
         <table>
-          <caption>Stock Market Data</caption>
+          <caption> <h2>Stock Market Data</h2></caption>
           <thead>
             <tr>
               <th>Date</th>
@@ -63,30 +67,28 @@ export default function Table() {
             </tr>
           </thead>
           <tbody>
-            {data.length > 0 ? (
-              data.map((entry, index) => (
-                <tr key={index}>
-                  <td>{entry.date}</td>
-                  <td>{entry.trade_code}</td>
-                  <td>{entry.high}</td>
-                  <td>{entry.low}</td>
-                  <td>{entry.open}</td>
-                  <td>{entry.close}</td>
-                  <td>{entry.volume}</td>
-                  <td>
-                    {/* Add the delete button */}
-                    <button  onClick={() => handleDelete(entry.id)}>
-                      Delete
-                    </button>
-                  </td>
-                </tr>
-              ))
-            ) : (
-              <tr>
-                <td colSpan="8">No data available</td>
-              </tr>
-            )}
-          </tbody>
+  {data.length > 0 ? (
+    data.map((entry) => (
+      <tr key={entry.id}> {/* Using `entry.id` as the key for the row */}
+        <td>{entry.date}</td>
+        <td>{entry.trade_code}</td>
+        <td>{entry.high}</td>
+        <td>{entry.low}</td>
+        <td>{entry.open}</td>
+        <td>{entry.close}</td>
+        <td>{entry.volume}</td>
+        <td>
+          <button onClick={() => handleDelete(entry.id)}>Delete</button> {/* Passing `id` to handleDelete */}
+        </td>
+      </tr>
+    ))
+  ) : (
+    <tr>
+      <td colSpan="8">No data available</td>
+    </tr>
+  )}
+</tbody>
+
         </table>
 
         {/* Pagination Controls */}
