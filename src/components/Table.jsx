@@ -48,9 +48,9 @@ export default function Table() {
   };
 
   // Handle Cancel Edit
-  const handleCancel = () => {
-    setEditingRow(null);
-  };
+  // const handleCancel = () => {
+  //   setEditingRow(null);
+  // };
 
   // Fetch Data
   useEffect(() => {
