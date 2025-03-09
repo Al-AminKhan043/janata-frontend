@@ -23,7 +23,7 @@ const Table = () => {
   return (
     <div className="table-container">
       <table>
-        <caption>Stock Market Data</caption>
+        <caption> <h2>Stock Market Data</h2></caption>
         <thead>
           <tr>
             <th>Date</th>
