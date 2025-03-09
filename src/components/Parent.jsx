@@ -25,7 +25,7 @@ export default function ParentComponent() {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const response = await fetch(`http://localhost:5000/data?page=${page}&limit=${limit}`);
+        const response = await fetch(`https://janata-backend.onrender.com/data?page=${page}&limit=${limit}`);
         if (!response.ok) throw new Error('Failed to fetch data');
         const jsonData = await response.json();
         setData(jsonData);
@@ -49,7 +49,7 @@ export default function ParentComponent() {
   // Handle Save Action
   const handleSave = async () => {
     try {
-      const response = await fetch(`http://localhost:5000/update/${editedData.id}`, {
+      const response = await fetch(`https://janata-backend.onrender.com/update/${editedData.id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(editedData),
@@ -77,7 +77,7 @@ export default function ParentComponent() {
     if (!isConfirmed) return;
 
     try {
-      const response = await fetch(`http://localhost:5000/delete/${id}`, { method: 'DELETE' });
+      const response = await fetch(`https://janata-backend.onrender.com/delete/${id}`, { method: 'DELETE' });
       if (!response.ok) throw new Error('Failed to delete data');
 
       setData((prevData) => prevData.filter((entry) => entry.id !== id));
