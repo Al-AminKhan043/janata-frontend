@@ -29,7 +29,7 @@ export default function ParentComponent() {
         if (!response.ok) throw new Error('Failed to fetch data');
         const jsonData = await response.json();
         setData(jsonData);
-        setError(null);  // Clear any previous errors
+        setError(null);  
       } catch (error) {
         console.error('Error fetching data', error);
         setError('Failed to fetch data');
@@ -43,7 +43,7 @@ export default function ParentComponent() {
   // Handle Edit Button Click
   const handleEdit = (row) => {
     setEditingRow(row.id);
-    setEditedData({ ...row }); // Make sure the row data is passed to editedData
+    setEditedData({ ...row }); 
   };
 
   // Handle Save Action

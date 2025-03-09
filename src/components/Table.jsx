@@ -7,7 +7,7 @@ export default function Table({
   handleSave,
   editingRow,
   setEditedData,
-  editedData, // Receive editedData as prop
+  editedData, 
   page,
   setPage
 }) {
@@ -46,7 +46,7 @@ export default function Table({
                     {editingRow === entry.id ? (
                       <input
                         type="text"
-                        value={editedData[field] || ""} // Access editedData
+                        value={editedData[field] || ""} 
                         onChange={(e) => handleInputChange(e, field)}
                       />
                     ) : (
@@ -76,7 +76,7 @@ export default function Table({
         </tbody>
       </table>
 
-      {/* Pagination Controls */}
+     
       <div className="pagination">
         <button disabled={page === 1} onClick={() => setPage(page - 1)}>
           Previous

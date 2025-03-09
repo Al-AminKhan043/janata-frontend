@@ -12,10 +12,10 @@ body {
 
 /* Table container */
 .table-container {
-    width: 95%; /* Make table wider */
-    max-width: 1400px; /* More space */
+    width: 95%; 
+    max-width: 1400px; 
     margin: auto;
-    overflow-x: auto; /* Add horizontal scroll on small screens */
+    overflow-x: auto;
 }
 
 /* Table styling */
@@ -24,12 +24,12 @@ table {
     border-collapse: collapse;
     background: white;
     text-align: left;
-    border: 2px solid #ddd; /* Outer border */
-    table-layout: fixed; /* Ensure equal column width */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+    border: 2px solid #ddd;
+    table-layout: fixed; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 }
 
-/* Table headers */
+
 th {
     background-color: #007bff;
     color: white;
@@ -37,42 +37,42 @@ th {
     padding: 14px;
     text-transform: capitalize;
     border: 2px solid #ddd;
-    white-space: nowrap; /* Prevent text wrapping */
+    white-space: nowrap; 
     text-align: center;
 }
 
 /* Table rows */
 td {
     padding: 12px;
-    border: 2px solid #ddd; /* Borders around cells */
+    border: 2px solid #ddd; 
     color: #333;
     overflow: hidden;
-    text-overflow: ellipsis; /* Trim overflow text */
+    text-overflow: ellipsis; 
     white-space: nowrap;
     text-align: center;
 }
 
-/* Alternating row colors */
+
 tr:nth-child(even) {
     background-color: #f9f9f9;
 }
 
-/* Hover effect */
+
 tr:hover {
     background-color: #e9ecef;
     transition: 0.2s;
 }
 
-/* Edit and Delete buttons styling */
+
 button {
-    background-color: #28a745; /* Green for Save/Cancel */
+    background-color: #28a745;
     color: white;
     border: none;
     padding: 8px 12px;
     cursor: pointer;
     border-radius: 4px;
     font-size: 14px;
-    margin: 4px; /* Margin between buttons */
+    margin: 4px; 
     transition: background-color 0.2s ease;
 }
 button.del {
@@ -81,13 +81,13 @@ button.del {
 
 
 
-/* Cancel Button */
+
 button.cancel {
-    background-color: #dc3545; /* Red for cancel */
+    background-color: #dc3545; 
 }
 
 button.cancel:hover {
-    background-color: #c82333; /* Darker red */
+    background-color: #c82333; 
 }
 
 /* Pagination controls */
@@ -95,7 +95,7 @@ button.cancel:hover {
     margin-top: 20px;
     margin-bottom: 20px;
     display: flex;
-    justify-content: center;  /* Center-align pagination buttons */
+    justify-content: center;  
     gap: 10px;
     align-items: center;
 }
