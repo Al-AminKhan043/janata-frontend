@@ -1,5 +1,5 @@
 import React from "react";
-import { Line } from "react-chartjs-2";
+import { Line, Bar } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -10,8 +10,8 @@ import {
   Title,
   Tooltip,
   Legend,
+  BarController,  
 } from "chart.js";
-
 
 ChartJS.register(
   CategoryScale,
@@ -21,16 +21,15 @@ ChartJS.register(
   PointElement,
   Title,
   Tooltip,
-  Legend
+  Legend,
+  BarController 
 );
 
 const Chart = ({ chartData }) => {
-  
   if (!chartData || !chartData.labels || !Array.isArray(chartData.datasets)) {
     return <div>Loading chart...</div>;
   }
 
-  
   const processedData = {
     ...chartData,
     datasets: chartData.datasets.map((dataset) => ({
@@ -38,8 +37,8 @@ const Chart = ({ chartData }) => {
       data: dataset.data.map((value) =>
         typeof value === "string" ? parseFloat(value.replace(/,/g, "")) : value
       ),
-      yAxisID: dataset.label === "Volume" ? "y2" : "y1", 
-      type: dataset.label === "Volume" ? "bar" : "line", 
+      yAxisID: dataset.label === "Volume" ? "y2" : "y1",
+      type: dataset.label === "Volume" ? "bar" : "line",
     })),
   };
 
@@ -59,7 +58,7 @@ const Chart = ({ chartData }) => {
               intersect: false,
             },
             legend: {
-              display: true, 
+              display: true,
             },
           },
           scales: {
@@ -78,7 +77,7 @@ const Chart = ({ chartData }) => {
                 text: "Close Price",
               },
               grid: {
-                drawOnChartArea: false, 
+                drawOnChartArea: false,
               },
             },
             y2: {
@@ -89,7 +88,7 @@ const Chart = ({ chartData }) => {
                 text: "Volume",
               },
               grid: {
-                drawOnChartArea: false, 
+                drawOnChartArea: false,
               },
             },
           },
